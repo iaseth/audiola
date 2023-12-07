@@ -1,0 +1,2 @@
+
+export { getNotesTable } from './notes';

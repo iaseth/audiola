@@ -4,15 +4,20 @@ import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import Main from './Main/Main';
 import { KEYS } from './keyboard';
+import { playTone } from './music';
 
 
 
 export default function App () {
 	const handleKeydown = (ev: KeyboardEvent) => {
-		const date = new Date();
 		const key = KEYS.find(key => key.keynames.includes(ev.key));
+
 		if (key) {
-			console.log(`You pressed '${ev.key}' [${key.row}, ${key.column}] at ${date.toLocaleTimeString()}`);
+			const {row, column} = key;
+			const freq = 200 + (row * 100) + (column * 5);
+			console.log(`You pressed '${ev.key}' [${row}, ${column}] at ${new Date().toLocaleTimeString()}`);
+			console.log(`Playing sound at ${freq}Hz`);
+			playTone(freq);
 		}
 	};
 

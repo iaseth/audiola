@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
-import Main from './Main/Main';
 import { playTone } from './music';
 import { getKeyDetails } from 'keyxy';
+import Keyboard from './Keyboard/Keyboard';
 
 
 
@@ -29,7 +29,9 @@ export default function App () {
 	return (
 		<div className="bg-zinc-900 text-white">
 			<Header />
-			<Main />
+			<main className="min-h-screen">
+				<Keyboard />
+			</main>
 			<Footer />
 		</div>
 	);
